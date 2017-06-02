@@ -1,0 +1,28 @@
+/*
+Translated from the Ruby algo I used for Codility
+*/
+public class Solution {
+    public int maxProfit(int[] prices) { 
+        // how we love corner cases
+        if( prices.length <= 1 ) return 0;
+        // worstcase, we don't get any profit, but at least we tried
+        int maxProfit = 0;
+        // since we only go from old to new, this is the guaranteed best price
+        // to buy we have seen
+        int newMin = Integer.MAX_VALUE;
+        int profit = 0;
+        for(int i=0; i<prices.length; i++){
+            if( prices[i] < newMin )
+                // we have seen the best price to buy, SALE!SALE!SALE!
+                newMin = prices[i];
+            else {
+                // this potencial profit is =>
+                // buy at the best time in the past, and sell TODAY
+                profit = prices[i]-newMin;
+                // here we check if this potential sale is better than all time
+                maxProfit = Math.max( profit , maxProfit );
+            }
+        }
+        return maxProfit;
+    }
+}
