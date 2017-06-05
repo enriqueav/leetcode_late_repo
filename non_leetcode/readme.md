@@ -1,2 +1,2 @@
-# this is for non_leetcode problems I have made in day to day
+#this is for non_leetcode problems I have made in day to day
 ## it kindof defeats the purpose of the repo, but anyway....
